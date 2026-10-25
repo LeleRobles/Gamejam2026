@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ddfrtfn44ye1h"]
+
+[ext_resource type="Script" uid="uid://yd0yfih2ty08" path="res://player/armas/projetil.gd" id="1_4dvx7"]
+[ext_resource type="Texture2D" uid="uid://ot0ud0oaoqv0" path="res://assets/itens/regua01_x100.png" id="2_uxavd"]
+[ext_resource type="AudioStream" uid="uid://brk1gv6625gj3" path="res://audio/sfx/25. jogando algo.wav" id="3_jw4f6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdh8b"]
+resource_local_to_scene = true
+radius = 13.038404
+
+[node name="Projetil" type="Area2D" unique_id=754887887]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_4dvx7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1292301640]
+rotation = 1.5707964
+texture = ExtResource("2_uxavd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617182061]
+shape = SubResource("CircleShape2D_mdh8b")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1397553980]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=835448795]
+stream = ExtResource("3_jw4f6")
+volume_db = -20.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://uthltrrrla1l"]
+
+[ext_resource type="Script" uid="uid://cqpabsa3xhq26" path="res://enemies/enemy_type.gd" id="1_7dlfg"]
+[ext_resource type="Script" uid="uid://dwoylvl3nkqmo" path="res://pickup/PickupResource.gd" id="1_nj6l8"]
+[ext_resource type="Resource" uid="uid://dwn5cjo0ch27h" path="res://pickup/resources/xp.tres" id="2_g48vw"]
+[ext_resource type="Texture2D" uid="uid://dkvyhdif8psm" path="res://assets/enemies/fantasminha_resized.png" id="2_pkoev"]
+
+[resource]
+script = ExtResource("1_7dlfg")
+health = 3.0
+texture = ExtResource("2_pkoev")
+hframes = 1
+vframes = 4
+scale_modifier = Vector2(0.5, 0.5)
+damage = 2.0
+speed = 80.0
+drops = Array[ExtResource("1_nj6l8")]([ExtResource("2_g48vw")])
+metadata/_custom_type_script = "uid://cqpabsa3xhq26"

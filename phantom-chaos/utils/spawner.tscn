@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ceinbu7hufm50"]
+
+[ext_resource type="Script" uid="uid://dg814jjttdicv" path="res://utils/spawner.gd" id="1_fpwof"]
+[ext_resource type="PackedScene" uid="uid://d3hp6y1y16uuc" path="res://enemies/inimigo.tscn" id="2_6hs48"]
+[ext_resource type="Script" uid="uid://cqpabsa3xhq26" path="res://enemies/enemy_type.gd" id="3_m3jg8"]
+[ext_resource type="Resource" uid="uid://uthltrrrla1l" path="res://enemies/resources/fantasminha.tres" id="4_fq7nl"]
+[ext_resource type="Resource" uid="uid://bbhkcv3l6gvr4" path="res://enemies/resources/lobisome.tres" id="5_fq7nl"]
+[ext_resource type="Resource" uid="uid://bvfwl8a78fta2" path="res://enemies/resources/zumbi.tres" id="6_x0xy4"]
+
+[node name="Spawner" type="Node2D" unique_id=438922561]
+script = ExtResource("1_fpwof")
+enemy = ExtResource("2_6hs48")
+enemy_types = Array[ExtResource("3_m3jg8")]([ExtResource("4_fq7nl"), ExtResource("6_x0xy4"), ExtResource("5_fq7nl")])
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1773188057]
+visible = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=815756721]
+offset_left = 471.0
+offset_top = 63.0
+offset_right = 513.0
+offset_bottom = 103.0
+
+[node name="Minute" type="Label" parent="UI/HBoxContainer" unique_id=861089044]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="Label2" type="Label" parent="UI/HBoxContainer" unique_id=371164104]
+layout_mode = 2
+text = ":"
+
+[node name="Second" type="Label" parent="UI/HBoxContainer" unique_id=897954826]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+
+[node name="Timer" type="Timer" parent="." unique_id=982104820]
+wait_time = 5.0
+autostart = true
+
+[node name="Pattern" type="Timer" parent="." unique_id=1049099354]
+wait_time = 120.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Pattern" to="." method="_on_pattern_timeout"]
