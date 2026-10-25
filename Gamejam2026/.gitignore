@@ -1,0 +1,21 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot-generated metadata and imported assets
+*.import
+*.uid
+
+# Operating-system metadata
+.DS_Store
+._*
+__MACOSX/
+
+# Obsolete duplicate project copy
+/Gamejam2026/
+
+# Unused asset pack and placeholder scenes
+/sprites/dark_halloween (1)/
+/sprites/._png@1x
+/sprites/Vampiro/anteprima.gif
+/sprites/porta.tscn
